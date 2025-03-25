@@ -1,0 +1,9 @@
+# Packages
+node_modules
+
+# Editor config
+.vscode
+
+# Virtual environment
+.direnv
+.envrc
