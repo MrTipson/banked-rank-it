@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { ChannelType, Client, Events, GatewayIntentBits, Message, MessageType, Partials } from 'discord.js';
 import { add, remove, setHandler } from './bank-it.js';
 import { generateThreadName } from "./thread-name.js";
