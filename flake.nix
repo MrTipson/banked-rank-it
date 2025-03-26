@@ -1,23 +1,20 @@
 {
-  description = "banked-rank-it dev environment";
+  description = "banked-rank-it devshell and package";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    dream2nix.url = "github:nix-community/dream2nix";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils, dream2nix }:
     flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          system = system;
-        };
-      in
       {
-        devShells.default = pkgs.mkShell rec {
-          buildInputs = with pkgs; [
-            nodejs
-          ];
+        packages = {
+          default = dream2nix.lib.evalModules {
+            packageSets.nixpkgs = nixpkgs.legacyPackages.${system};
+            modules = [ ./default.nix ];
+          };
         };
       }
     );

@@ -7,3 +7,7 @@ node_modules
 # Virtual environment
 .direnv
 .envrc
+
+# Packaging
+result
+.dream2nix
