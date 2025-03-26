@@ -14,8 +14,8 @@
     src = builtins.fetchGit {
       shallow = true;
       url = "https://github.com/MrTipson/banked-rank-it";
-      ref = "v0.0.1";
-      rev = "b77bcbf2dd1b0956072fff6ee971bd59a65a72af";
+      ref = "v0.0.2";
+      rev = "3fccf587d122545120af7c29bf6ae81d4836f843";
     };
   };
 
@@ -32,5 +32,5 @@
   };
 
   name = "banked-rank-it";
-  version = "0.0.1";
+  version = "0.0.2";
 }
