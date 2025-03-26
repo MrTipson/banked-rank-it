@@ -7,14 +7,17 @@ const client = new Client({
     partials: [Partials.Message, Partials.Channel, Partials.Reaction],
 });
 
-const channelId = Deno.env.get('CHANNEL_ID');
-if (!channelId) {
-    throw new Error('env: MESSAGE_ID required');
-}
-const messageId = Deno.env.get('MESSAGE_ID');
-if (!messageId) {
-    throw new Error('env: MESSAGE_ID required');
-}
+function env(name: string) {
+    const value = process.env[name];
+    if (!value) {
+        throw new Error(`env: ${name} required`);
+    }
+    return value;
+} 
+
+const channelId = env('CHANNEL_ID');
+const messageId = env('MESSAGE_ID');
+
 let rootMessage: Message<true> | null = null;
 const emoji = '🔍';
 
@@ -109,4 +112,4 @@ client.on(Events.MessageCreate, message => {
     }
 });
 
-client.login(Deno.env.get('TOKEN'));
+client.login(env('TOKEN'));

@@ -16,7 +16,7 @@
       {
         devShells.default = pkgs.mkShell rec {
           buildInputs = with pkgs; [
-            deno
+            nodejs
           ];
         };
       }

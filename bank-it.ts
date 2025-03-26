@@ -1,11 +1,11 @@
-const THRESHOLD = 2;
+const THRESHOLD = 12;
 export function add (user: string) {
-    console.log('add');
+    // console.log('add');
     if (user in queue) {
         return;
     }
     queue.push(user);
-    console.log('Users in queue', queue);
+    // console.log('Users in queue', queue);
     if (queue.length >= THRESHOLD) {
         if (onQueue) {
             onQueue(queue.splice(0,THRESHOLD));
@@ -14,7 +14,7 @@ export function add (user: string) {
 }
 
 export function remove(user: string) {
-    console.log('remove');
+    // console.log('remove');
     const i = queue.indexOf(user);
     if (i >= 0) {
         queue = queue.splice(i, 1);

@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "discord-api-types": "npm:discord-api-types@^0.37.119",
-    "discord.js": "npm:discord.js@^14.18.0"
-  }
-}
