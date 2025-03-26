@@ -3,11 +3,14 @@
     "private": true,
     "version": "0.0.1",
     "type": "module",
-    "scripts": {},
-    "dependencies": {
-        "discord.js": "^14.18.0"
+    "scripts": {
+        "build": "tsc"
     },
-    "devDependencies": {
+    "dependencies": {
+        "discord.js": "^14.18.0",
+        "typescript": "^5.8.2"
+    },
+    "bin": {
+        "banked-rank-it": "dist/main.js"
     }
-  }
-  
+}

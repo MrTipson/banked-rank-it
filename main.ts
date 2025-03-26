@@ -1,6 +1,6 @@
 import { ChannelType, Client, Events, GatewayIntentBits, Message, MessageType, Partials } from 'discord.js';
-import { add, remove, setHandler } from './bank-it.ts';
-import { generateThreadName } from "./thread-name.ts";
+import { add, remove, setHandler } from './bank-it.js';
+import { generateThreadName } from "./thread-name.js";
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions],
@@ -84,7 +84,7 @@ client.on(Events.MessageReactionRemove, async (reaction, user) => {
     remove(user.id);
 });
 
-setHandler(async users => {
+setHandler(async (users: string[]) => {
     try {
         const channel = client.channels.cache.get(channelId);
         if (channel?.type === ChannelType.GuildText) {
